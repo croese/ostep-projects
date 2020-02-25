@@ -38,8 +38,18 @@ void interactive() {
   char* line = NULL;
   size_t linecap = 0;
   ssize_t linelen;
+  char* token = NULL;
+  char* string = NULL;
+
   while ((linelen = getline(&line, &linecap, stdin)) > 0) {
-    printf("READ: %s", line);
+    line[strcspn(line, "\n")] = 0;
+    printf("READ: %s (%zd)\n", line, linelen);
+
+    string = line;
+    while ((token = strsep(&string, " ")) != NULL) {
+      printf("TOKEN: '%s'\n", token);
+    }
+
     printf("wish> ");
   }
 
