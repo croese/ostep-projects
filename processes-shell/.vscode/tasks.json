@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build with Clang",
+            "type": "shell",
+            "command": "clang",
+            "args": [
+                "-std=c11",
+                "wish.c",
+                "-o",
+                "wish",
+                "--debug",
+                "-Wall",
+                "-Werror"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
