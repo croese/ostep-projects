@@ -18,6 +18,8 @@ void print_file(const char *fname) {
 
     if (ferror(fp)) {
         perror("wcat");
+        fclose(fp);
+        exit(1);
     }
 
     fclose(fp);
